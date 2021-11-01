@@ -26,7 +26,7 @@ public class OrderController {
     }
 
     @GetMapping("/{id}")
-    @Retry(name = "basic",fallbackMethod = "getFallBackOrders")
+//    @Retry(name = "basic",fallbackMethod = "getFallBackOrders")
     @RateLimiter(name = "basic")
     public ResponseVO getById(@PathVariable long id){
         Orders o= orderRepository.findById(id).get();
